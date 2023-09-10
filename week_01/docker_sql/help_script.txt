@@ -31,7 +31,7 @@ python ingest_data.py \
 docker build -t ingest_data:v001 .
 
 docker run -it \
-	--network=week_01_default \
+	--network=docker_sql_default \
 	ingest_data:v001 \
 	--user=root \
 	--password=root \
