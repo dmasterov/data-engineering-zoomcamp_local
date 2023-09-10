@@ -43,3 +43,6 @@ docker run -it \
 
 
 python ~/code/data-eng-zoom/week_1/ingest_data.py --user=root         --password=root         --host=localhost        --port=5432   --dbname=ny_taxy        --tblname=yellow_taxi_data      --url=https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-01.parquet
+
+
+source jup_notebook/bin/activate
