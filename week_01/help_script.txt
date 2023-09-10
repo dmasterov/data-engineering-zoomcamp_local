@@ -31,11 +31,11 @@ python ingest_data.py \
 docker build -t ingest_data:v001 .
 
 docker run -it \
-	--network=pg-network \
+	--network=week_01_default \
 	ingest_data:v001 \
 	--user=root \
 	--password=root \
-	--host=pg-database \
+	--host=pgdatabase \
 	--port=5432 \
 	--dbname=ny_taxy \
 	--tblname=yellow_taxi_data \
