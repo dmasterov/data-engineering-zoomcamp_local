@@ -7,6 +7,10 @@ import pandas as pd
 from sqlalchemy import create_engine
 from time import time 
 
+def chunks(l, n):
+	for i in range(0, len(l), n):
+			yield l.iloc[i:i+n]
+
 def main(params):
 
 	user = params.user
@@ -33,7 +37,10 @@ def main(params):
 
 	df.head(0).to_sql(name=tblname, con = engine, if_exists='replace')
 
-	df.to_sql(name=tblname, con = engine, if_exists='append', chunksize=10000)
+	for idx, chunk in enumerate(chunks(df, 100000)):
+		
+		chunk.to_sql(con=engine, name=tblname, if_exists='append')
+		print(f" chunk number is ", idx)
 
 if __name__ == '__main__':
 
