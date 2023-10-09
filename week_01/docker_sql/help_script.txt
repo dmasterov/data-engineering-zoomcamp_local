@@ -55,4 +55,10 @@ for jan 2020 - 447,770 rows
 
 first day every month at  5 am - 0 5 1 * *
 
-feb - 7019375
+feb + march - 7019375 + 7832545 = 7019375 + 7832545
+
+
+gcloud dataproc jobs submit pyspark \
+    --cluster=de-zoomcamp-cluster  \
+    --region=europe-north1 \
+    gs://dtc_data_lake_de-zoomcamp-nytaxi/code/10_in_dataproc.py

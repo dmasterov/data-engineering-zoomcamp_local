@@ -16,8 +16,8 @@ def fetch(dataset_url: str) -> pd.DataFrame:
 @task(log_prints=True)
 def clean(df: pd.DataFrame) -> pd.DataFrame:
     """Fix dtype issues"""
-    df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"])
-    df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"])
+    # df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"])
+    # df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"])
     print(df.head(2))
     print(f"columns: {df.dtypes}")
     print(f"rows: {len(df)}")
@@ -50,7 +50,7 @@ def etl_web_to_gcs(year: int, month: int, color: str) -> None:
 
 @flow()
 def etl_parent_flow(
-    months: list[int] = [1, 2], year: int = 2021, color: str = "yellow"
+    months: list[int] = [3], year: int = 2019, color: str = "yellow"
 ):
     for month in months:
         etl_web_to_gcs(year, month, color)
